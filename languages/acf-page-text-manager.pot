@@ -1,0 +1,912 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ACF Page Text Manager 2.3.69\n"
+"Report-Msgid-Bugs-To: https://www.webactueel.nl/\n"
+"POT-Creation-Date: 2026-05-14 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: acf-page-text-manager\n"
+
+#: templates/admin/partials/actions-card.php:128
+msgid "%d export/import veld"
+msgid_plural "%d export/import velden"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/admin/partials/actions-card.php:73
+msgid "%d item gevonden"
+msgid_plural "%d items gevonden"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/class-admin-page.php:172
+msgid "%1$d van %2$d velden geselecteerd voor export."
+msgstr ""
+
+#: includes/admin/services/traits/special-field-image-trait.php:31
+msgid "%1$s — %2$s"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:179
+msgid "%d items gevonden"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:168
+#: templates/admin/partials/fields-card.php:79
+#: templates/admin/partials/fields-card.php:81
+msgid "%s wordt meegenomen in export."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:170
+msgid "%s wordt niet meegenomen in export."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:177
+msgid "1 item gevonden"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:130
+msgid "ACF"
+msgstr ""
+
+#: includes/core/class-plugin.php:46
+msgid "ACF Page Text Manager allows administrators to export and import selected post, term, option, SEO and ACF field values. Depending on the configured fields, exported files and import previews may contain personal data. Review exported files before sharing them, store rollback files securely, and remove downloaded files when they are no longer needed."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:261
+msgid "ACF Page Text Manager heeft Advanced Custom Fields nodig. Activeer ACF voordat je deze plugin gebruikt."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:83
+msgid "ACF is niet actief voor dit ACF-veld."
+msgstr ""
+
+#: includes/admin/traits/page-repository-summary-trait.php:104
+msgid "ACF-optiepagina"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:17
+msgid "Acties"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:187
+msgid "Alle velden worden meegenomen in export."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:188
+msgid "Alle velden zijn uitgezet voor export."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:175
+msgid "Alle veldgroepen worden getoond."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:88
+msgid "Alleen CSV-, XLSX- en ZIP-bestanden zijn toegestaan."
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:35
+msgid "Alles"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:46
+msgid "Alles selecteren"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:47
+msgid "Alles wissen"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-image-trait.php:42
+msgid "Alt tag"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:191
+msgid "Automatisch opgeslagen."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:184
+#: includes/admin/traits/page-repository-summary-trait.php:126
+msgid "Bericht"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:77
+#: includes/admin/services/traits/special-field-image-trait.php:48
+msgid "Beschrijving"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:158
+msgid "Bestaande waarden overschrijven"
+msgstr ""
+
+#: includes/admin/traits/admin-actions-import-trait.php:56
+msgid "Bestand %s kon niet automatisch aan een geldig item worden gekoppeld."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:165
+#: templates/admin/partials/actions-card.php:151
+msgid "Bestand kiezen"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:143
+msgid "Bestanden"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-image-trait.php:40
+msgid "Bestandsnaam (wijzigt media-URL)"
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:58
+msgid "Bevestig expliciet dat je begrijpt dat een media-bestandsnaamwijziging bestaande media-URL’s kan wijzigen."
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:91
+msgid "Bewerken"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:152
+msgid "Bijwerken"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:148
+msgid "CSV-, XLSX- of ZIP-bestand"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-image-trait.php:46
+msgid "Caption"
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:131
+msgid "De nieuwe waarde is gelijk aan de huidige waarde; geen wijziging nodig."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:114
+msgid "De taalcode in deze rij komt niet overeen met het geselecteerde item."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:116
+msgid "De taalcode wijkt af van het geselecteerde item."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:101
+msgid "De tekst kon niet worden opgeslagen."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:370
+#: includes/admin/services/class-file-upload-service.php:444
+msgid "De uitgepakte ZIP-import mag samen maximaal %s MB zijn."
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:45
+msgid "Deze import is niet toegestaan door het importvoorbeeld. Maak opnieuw een importvoorbeeld en controleer de meldingen."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-import-trait.php:133
+msgid "Deze import wijzigt één of meer media-bestandsnamen. Vink de bevestiging voor media-URL wijzigingen aan en maak opnieuw een voorbeeld voordat je de import uitvoert."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:195
+msgid "Deze wijziging past de fysieke media-bestandsnaam aan en kan bestaande media-URL’s wijzigen. Doorgaan?"
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:38
+msgid "Dit importplan hoort niet bij de huidige gebruiker of is ongeldig."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:86
+#: includes/admin/traits/admin-actions-inline-trait.php:50
+msgid "Dit veld is alleen-lezen en kan niet worden aangepast."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:79
+msgid "Download ACF-velden, Yoast SEO, Rank Math, afbeeldingmetadata en titel/excerpt van pagina’s en berichten."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:199
+msgid "Download gestart. Controleer je downloads als er geen nieuw venster verschijnt."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:359
+#: includes/admin/services/class-file-upload-service.php:431
+msgid "Een ZIP-import mag maximaal %s CSV- of XLSX-bestanden bevatten."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:345
+#: includes/admin/services/class-file-upload-service.php:419
+msgid "Elk bestand in een ZIP-import mag maximaal %s MB zijn."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:128
+msgid "Er bestaat al een waarde en overschrijven is uitgeschakeld."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:16
+#: includes/admin/services/class-file-upload-service.php:23
+msgid "Er is geen CSV-, XLSX- of ZIP-bestand ontvangen."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:579
+msgid "Er is geen bestand ontvangen."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:46
+msgid "Er is geen geldig doel met exporteerbare velden gevonden."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:84
+msgid "Er is geen passend ondersteund veld gevonden voor deze rij."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:454
+msgid "Er kon geen tijdelijk bestand worden aangemaakt."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:143
+msgid "Er kon geen veilige tijdelijke importmap worden aangemaakt."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:191
+msgid "Er konden geen exportbestanden worden toegevoegd aan het ZIP-bestand."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-import-trait.php:104
+msgid "Er konden geen geldige importregels worden voorbereid."
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:29
+msgid "Er zijn geen exporteerbare velden gevonden voor dit item."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:67
+msgid "Er zijn geen rollbackregels beschikbaar voor dit importplan."
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:34
+msgid "Excerpt / samenvatting"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:52
+msgid "Export"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:198
+#: templates/admin/partials/actions-card.php:136
+msgid "Export downloaden"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:197
+msgid "Export wordt voorbereid…"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:78
+msgid "Exporteren"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:44
+msgid "Exportselectie"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:114
+msgid "Exportselectie acties"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:45
+msgid "Exportvelden selecteren"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:101
+msgid "Formaat"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:196
+msgid "Gebruik Opslaan om deze media-bestandsnaamwijziging expliciet te bevestigen."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:145
+msgid "Herkende kolommen"
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:249
+msgid "Het CSV-bestand heeft geen geldige headerstructuur."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:265
+msgid "Het CSV-bestand heeft geen leesbare kolomkoppen."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:236
+msgid "Het CSV-bestand kon niet worden geopend."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:298
+msgid "Het XLSX-bestand heeft geen herkenbare spreadsheetstructuur."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:280
+msgid "Het XLSX-bestand kon niet worden geopend."
+msgstr ""
+
+#: includes/admin/traits/csv-service-export-trait.php:166
+msgid "Het XLSX-bestand kon niet worden opgebouwd."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:380
+#: includes/admin/services/class-file-upload-service.php:482
+msgid "Het ZIP-bestand bevat geen CSV- of XLSX-bestanden."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:461
+msgid "Het ZIP-bestand kon niet veilig worden verwerkt."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:320
+#: includes/admin/services/class-file-upload-service.php:393
+msgid "Het ZIP-bestand kon niet worden geopend."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:576
+msgid "Het bestand is maar gedeeltelijk geüpload."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:573
+msgid "Het bestand is te groot."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:131
+msgid "Het bestand wordt gelezen en gevalideerd…"
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:222
+msgid "Het bestandstype komt niet overeen met de bestandsextensie."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:226
+msgid "Het bestandstype kon niet veilig worden gevalideerd."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:82
+msgid "Het doel in het bestand komt niet overeen met het gekozen type of item."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:34
+msgid "Het gekozen item is niet gevonden."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:201
+msgid "Het geüploade bestand kon niet veilig worden opgeslagen."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:82
+msgid "Het geüploade bestand kon niet worden gelezen."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:150
+#: includes/admin/services/class-file-upload-service.php:190
+msgid "Het geüploade bestand kon niet worden opgeslagen."
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:102
+msgid "Het importbestand mag maximaal %s MB zijn."
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:31
+msgid "Het importplan is niet gevonden of is verlopen."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:62
+msgid "Het rollbackbestand is niet gevonden of hoort niet bij de huidige gebruiker."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:46
+msgid "Het veld kon niet worden gevonden."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:149
+msgid "Huidig"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:160
+msgid "Ik begrijp dat media-bestandsnamen bestaande media-URL’s kunnen wijzigen"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:53
+#: includes/admin/class-admin-page.php:164
+msgid "Import"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:162
+msgid "Import afgerond"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:135
+msgid "Import afgerond."
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:164
+msgid "Import afgerond. %1$d veld(en) bijgewerkt, %2$d rij(en) overgeslagen."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:146
+msgid "Import kan alleen ACF-velden, Yoast SEO, Rank Math, afbeeldingmetadata en titel/excerpt van pagina’s en berichten bijwerken."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:139
+msgid "Import mislukt."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:160
+msgid "Import nu uitvoeren"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:164
+msgid "Import uitvoeren"
+msgstr ""
+
+#: includes/admin/traits/admin-actions-import-trait.php:157
+msgid "Import voorbereiden mislukt: %s"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:133
+msgid "Import wordt uitgevoerd…"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:145
+msgid "Importeren"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:156
+msgid "Importveiligheid"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:142
+#: templates/admin/partials/actions-card.php:163
+msgid "Importvoorbeeld"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:132
+msgid "Importvoorbeeld klaar"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:130
+msgid "Importvoorbeeld wordt gelezen…"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:159
+msgid "Importvoortgang"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:51
+msgid "Item"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:68
+msgid "Item openen"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:268
+msgid "Je gebruikt ACF versie %1$s. Test en update bij voorkeur naar ACF %2$s of nieuwer voordat je import/export- en media-rename workflows uitvoert."
+msgstr ""
+
+#: includes/admin/class-admin-actions.php:79
+msgid "Je hebt geen toestemming om deze actie uit te voeren."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:213
+msgid "Je hebt geen toestemming om deze pagina te bekijken."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:54
+msgid "Je hebt geen toestemming om dit item te bewerken."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:128
+msgid "Kies alleen CSV-, XLSX- of ZIP-bestanden."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:52
+msgid "Kies een item"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:40
+msgid "Kies een type"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:126
+msgid "Kies eerst een CSV-, XLSX- of ZIP-bestand."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:127
+msgid "Kies eerst een item om veldinhoud te bekijken of te exporteren."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:81
+msgid "Kies eerst een item voordat je exporteert."
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:27
+msgid "Kies links een item om de veldinhoud te tonen."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:31
+msgid "Kies minstens één item om te exporteren."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:115
+msgid "Kies zichtbare"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:189
+#: templates/admin/partials/fields-card.php:84
+msgid "Klik om tekst aan te passen"
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:152
+msgid "Kon het export-zipbestand niet maken."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:193
+#: includes/admin/traits/admin-actions-inline-trait.php:110
+#: templates/admin/partials/fields-card.php:99
+msgid "Leeg"
+msgstr ""
+
+#: includes/admin/services/class-field-value-service.php:123
+msgid "Leeg veld"
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:122
+msgid "Lege importwaarde; deze rij wordt overgeslagen."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:157
+msgid "Lege importwaarden overslaan"
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:125
+msgid "Lege invoer zonder wijziging; deze rij wordt overgeslagen."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:159
+msgid "Let op: media-bestandsnaam wijzigen is een fysieke bestandswijziging. Maak eerst een backup of staging-test en download het rollbackbestand voordat je de import uitvoert."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:154
+msgid "Maak altijd eerst een importvoorbeeld. Alleen ondersteunde pagina- en berichtvelden worden verwerkt. Het voorbeeld is een dry-run: er wordt pas geschreven nadat je de import uitvoert."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-import-trait.php:111
+msgid "Meerdere bestanden"
+msgstr ""
+
+#: includes/admin/traits/admin-actions-export-trait.php:145
+msgid "Meerdere exports vereisen de PHP ZipArchive-extensie."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-import-trait.php:112
+msgid "Meerdere items"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:75
+msgid "Naam"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:146
+msgid "Niet-herkende kolommen"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:150
+msgid "Nieuw"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:166
+#: templates/admin/partials/actions-card.php:152
+msgid "Nog geen bestand gekozen"
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:582
+msgid "Onbekende uploadfout."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:140
+msgid "Onverwacht serverantwoord tijdens import."
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:108
+msgid "Opgeslagen."
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:92
+msgid "Opslaan"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:192
+msgid "Opslaan mislukt."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:190
+msgid "Opslaan…"
+msgstr ""
+
+#: includes/admin/traits/page-repository-summary-trait.php:97
+#: includes/admin/traits/page-repository-target-data-trait.php:114
+msgid "Optiepagina"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:157
+msgid "Overgeslagen rijen"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:153
+msgid "Overslaan"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:185
+#: includes/admin/traits/page-repository-summary-trait.php:127
+msgid "Pagina"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:136
+msgid "Rank Math"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:115
+msgid "Rank Math canonical URL"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:111
+msgid "Rank Math description"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:113
+msgid "Rank Math focus keyword"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:109
+msgid "Rank Math title"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:117
+msgid "Rank Math veld"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:147
+msgid "Rij"
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:136
+msgid "Rij %1$d kon veld %2$s niet bijwerken."
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:115
+msgid "Rij %1$d kon veld %2$s niet bijwerken: ACF is niet actief."
+msgstr ""
+
+#: includes/admin/services/class-import-plan-builder.php:173
+msgid "Rij %1$d: %2$s"
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:78
+msgid "Rij %d kon niet worden bijgewerkt: je hebt geen toestemming om dit item te bewerken."
+msgstr ""
+
+#: includes/admin/services/class-import-processor.php:106
+msgid "Rij %d kon niet worden bijgewerkt: veldinformatie ontbreekt."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:156
+msgid "Rijen om bij te werken"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:136
+msgid "Rollback CSV downloaden"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:174
+msgid "Selecteer minstens één item om te exporteren."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:173
+#: includes/admin/traits/admin-actions-export-trait.php:40
+msgid "Selecteer minstens één veld voor export."
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:76
+msgid "Slug"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:161
+msgid "Sluiten"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:151
+msgid "Status"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:111
+msgid "Te exporteren items"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:70
+msgid "Tekst voor %s"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:38
+#: includes/admin/class-admin-page.php:39
+msgid "Tekstbeheer"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:33
+#: includes/admin/services/traits/special-field-image-trait.php:44
+msgid "Titel"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:89
+msgid "Type"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:59
+#: includes/admin/services/traits/special-field-definitions-trait.php:64
+msgid "Uitgelichte afbeelding"
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:71
+msgid "Upload mislukt: %s"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:148
+msgid "Veld"
+msgstr ""
+
+#: includes/admin/traits/admin-actions-inline-trait.php:20
+msgid "Veld of item ontbreekt."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:176
+msgid "Veldfilters bijgewerkt."
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:33
+msgid "Veldgroepen"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:34
+msgid "Veldgroepen filteren"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:194
+msgid "Veldinhoud aanpassen"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:31
+msgid "Veldtools"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:134
+msgid "Voorbeeld is klaar. Controleer de samenvatting en start daarna de import."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:138
+msgid "Voorbeeld mislukt."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:129
+msgid "Voorbeeld wordt voorbereid…"
+msgstr ""
+
+#: templates/admin/partials/fields-card.php:74
+msgid "Waarde bewerken voor %s"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:158
+msgid "Waarschuwingen"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:137
+msgid "Weet je zeker dat je deze import wilt uitvoeren? Download eerst het rollbackbestand als je wijzigingen snel wilt kunnen terugzetten."
+msgstr ""
+
+#: includes/admin/class-admin-page.php:144
+msgid "Wijzigingsvoorbeeld"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:116
+msgid "Wis selectie"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:127
+msgid "WordPress"
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:274
+msgid "XLSX-import vereist de PHP ZipArchive-extensie."
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:96
+msgid "Yoast Open Graph description"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:94
+msgid "Yoast Open Graph title"
+msgstr ""
+
+#: includes/admin/class-admin-page-view-model.php:133
+msgid "Yoast SEO"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:102
+msgid "Yoast SEO veld"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:100
+msgid "Yoast Twitter description"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:98
+msgid "Yoast Twitter title"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:92
+msgid "Yoast canonical URL"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:86
+msgid "Yoast keyphrase"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:90
+msgid "Yoast meta description"
+msgstr ""
+
+#: includes/admin/services/traits/special-field-definitions-trait.php:88
+msgid "Yoast meta title"
+msgstr ""
+
+#: includes/admin/services/class-file-upload-service.php:314
+#: includes/admin/services/class-file-upload-service.php:388
+msgid "ZIP-import vereist de PHP ZipArchive-extensie."
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:48
+msgid "Zoek een item"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:49
+msgid "Zoek op titel…"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:98
+msgid "Zoek pagina of bericht…"
+msgstr ""
+
+#: templates/admin/partials/actions-card.php:97
+msgid "Zoeken"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:141
+msgid "bestanden geselecteerd"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:180
+msgid "geselecteerd"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:182
+msgid "meer"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:155
+msgid "skips"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:154
+msgid "updates"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:163
+msgid "velden verwerkt"
+msgstr ""
+
+#: includes/admin/class-admin-page.php:181
+msgid "zichtbaar"
+msgstr ""
