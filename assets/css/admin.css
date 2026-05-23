@@ -1,0 +1,1140 @@
+/**
+ * ACF Page Text Manager — Admin Stylesheet
+ *
+ * Aligned with the WordPress 7.0 "Modern" admin design system.
+ * Tokens follow WordPress core / Gutenberg conventions:
+ *   - Primary text         : #1e1e1e
+ *   - Accent / interactive : #3858e9 (hover #2235b0, focus ring #7b90ff)
+ *   - Borders / surfaces   : #f0f0f1, #ddd, #fff
+ *   - Radius               : 2px / 4px / 6px (no rounded "card" look)
+ *   - Shadow               : subtle 1px / 2px elevation only
+ *
+ * All class names match the markup rendered by the PHP templates
+ * (templates/admin/page.php and partials) and the selectors used by
+ * the JavaScript modules in assets/js. Changes to selectors here must
+ * be mirrored in those files.
+ */
+
+/* -----------------------------------------------------------------------------
+ * 1. Design tokens
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple {
+    /* Surfaces */
+    --wa-ptm-bg:              #f0f0f1;
+    --wa-ptm-surface:         #ffffff;
+    --wa-ptm-surface-muted:   #f6f7f7;
+    --wa-ptm-surface-subtle:  #fbfbfc;
+
+    /* Borders */
+    --wa-ptm-border:          #dcdcde;
+    --wa-ptm-border-strong:   #c3c4c7;
+    --wa-ptm-border-focus:    #3858e9;
+
+    /* Text */
+    --wa-ptm-text:            #1e1e1e;
+    --wa-ptm-text-soft:       #2c3338;
+    --wa-ptm-text-muted:      #50575e;
+    --wa-ptm-text-faint:      #757575;
+
+    /* Accent (WP 7.0 Modern primary) */
+    --wa-ptm-accent:          #3858e9;
+    --wa-ptm-accent-hover:    #2235b0;
+    --wa-ptm-accent-active:   #1c2a85;
+    --wa-ptm-accent-soft:     #f0f2ff;
+    --wa-ptm-accent-ring:     rgba(56, 88, 233, 0.25);
+
+    /* Feedback */
+    --wa-ptm-success:         #007017;
+    --wa-ptm-success-soft:    #edfaef;
+    --wa-ptm-success-border:  #a4d4ab;
+    --wa-ptm-warning:         #8a5a00;
+    --wa-ptm-warning-soft:    #fcf3e3;
+    --wa-ptm-warning-border:  #f0c33c;
+    --wa-ptm-danger:          #b32d2e;
+    --wa-ptm-danger-soft:     #fcf0f1;
+    --wa-ptm-danger-border:   #e6a3a4;
+    --wa-ptm-info:            #2271b1;
+    --wa-ptm-info-soft:       #f0f6fc;
+
+    /* Radii — WP 7.0 favours tighter corners */
+    --wa-ptm-radius-sm: 2px;
+    --wa-ptm-radius-md: 4px;
+    --wa-ptm-radius-lg: 6px;
+
+    /* Shadows — quieter than before */
+    --wa-ptm-shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --wa-ptm-shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.04);
+    --wa-ptm-shadow-md: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    --wa-ptm-shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+
+    /* Focus ring (WP convention) */
+    --wa-ptm-ring: 0 0 0 1.5px #fff, 0 0 0 3px var(--wa-ptm-accent);
+
+    /* Typography */
+    --wa-ptm-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --wa-ptm-step--1: 12px;
+    --wa-ptm-step-0:  13px;
+    --wa-ptm-step-1:  14px;
+    --wa-ptm-step-2:  16px;
+    --wa-ptm-step-3:  20px;
+    --wa-ptm-step-4:  23px;
+
+    /* Spacing */
+    --wa-ptm-gap-1: 4px;
+    --wa-ptm-gap-2: 8px;
+    --wa-ptm-gap-3: 12px;
+    --wa-ptm-gap-4: 16px;
+    --wa-ptm-gap-5: 24px;
+    --wa-ptm-gap-6: 32px;
+
+    --wa-ptm-ease: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    font-family: var(--wa-ptm-font);
+    color: var(--wa-ptm-text-soft);
+    width: auto;
+    max-width: none;
+    margin-top: 10px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple *,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple *::before,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple *::after {
+    box-sizing: border-box;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .notice {
+    max-width: none;
+    margin: 0 0 16px;
+    border-radius: var(--wa-ptm-radius-md);
+}
+
+/* -----------------------------------------------------------------------------
+ * 2. Layout — grid & cards
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-card {
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-border);
+    border-radius: var(--wa-ptm-radius-lg);
+    box-shadow: var(--wa-ptm-shadow-sm);
+}
+
+/* Actions card spans the available admin width, matching the fields panel below. */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-actions-card {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Fields card spans full width so long content has room to breathe */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-fields-card {
+    padding: 24px 28px 28px;
+}
+
+/* -----------------------------------------------------------------------------
+ * 3. Tabs (full-width segmented navigation)
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+    border-bottom: 1px solid var(--wa-ptm-border);
+    background: var(--wa-ptm-surface-subtle);
+}
+
+@media (max-width: 600px) {
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tabs {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 48px;
+    padding: 12px 18px;
+    margin: 0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--wa-ptm-radius-md);
+    color: var(--wa-ptm-text-muted);
+    font-family: inherit;
+    font-size: var(--wa-ptm-step-1);
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: background-color var(--wa-ptm-ease), border-color var(--wa-ptm-ease), box-shadow var(--wa-ptm-ease), color var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+    line-height: 1;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab:hover,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab:focus {
+    color: var(--wa-ptm-text);
+    background: #fff;
+    border-color: var(--wa-ptm-border);
+    outline: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab:focus-visible {
+    box-shadow: var(--wa-ptm-ring);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab.is-active {
+    color: var(--wa-ptm-accent);
+    background: #fff;
+    border-color: rgba(56, 88, 233, 0.35);
+    box-shadow: var(--wa-ptm-shadow-sm);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab-panel {
+    padding: 20px 24px 24px;
+    display: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab-panel.is-active {
+    display: block;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-tab-panel:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px var(--wa-ptm-accent);
+    border-radius: var(--wa-ptm-radius-md);
+}
+
+/* -----------------------------------------------------------------------------
+ * 4. Forms — labels, inputs, selects, search
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-picker,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block form {
+    margin: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.75fr) minmax(300px, 1.35fr) minmax(420px, 1.05fr) auto;
+    gap: 16px;
+    align-items: end;
+}
+
+@media (max-width: 1100px) {
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-row {
+        grid-template-columns: 1fr 1fr;
+    }
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field-action {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field label,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block > label,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block fieldset > legend {
+    display: block;
+    margin: 0;
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-0);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field input[type="search"],
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field input[type="text"],
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field select,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block input[type="search"],
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block input[type="text"],
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block select,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-shell {
+    width: 100%;
+    min-height: 36px;
+    padding: 6px 10px;
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-border-strong);
+    border-radius: var(--wa-ptm-radius-sm);
+    color: var(--wa-ptm-text);
+    font-family: inherit;
+    font-size: var(--wa-ptm-step-1);
+    line-height: 1.4;
+    box-shadow: 0 0 0 transparent;
+    transition: border-color var(--wa-ptm-ease), box-shadow var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field select,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 34px;
+    background-color: var(--wa-ptm-surface);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%2350575e' d='M5.5 7.5 10 12l4.5-4.5 1 1L10 14 4.5 8.5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field select:disabled,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block select:disabled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23757575' d='M5.5 7.5 10 12l4.5-4.5 1 1L10 14 4.5 8.5z'/%3E%3C/svg%3E");
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field input:focus,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field select:focus,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block input:focus,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block select:focus {
+    border-color: var(--wa-ptm-accent);
+    box-shadow: 0 0 0 1px var(--wa-ptm-accent);
+    outline: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field input:hover:not(:focus),
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-field select:hover:not(:focus) {
+    border-color: #8c8f94;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-submit-wrap {
+    align-self: end;
+    justify-self: start;
+    width: auto;
+    max-width: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-submit {
+    width: auto;
+    min-width: 194px;
+    white-space: nowrap;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-spacer {
+    display: block;
+    height: 22px;
+}
+
+@media (max-width: 600px) {
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-spacer { display: none; }
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-support-text {
+    margin: 8px 0 0;
+    color: var(--wa-ptm-text-muted);
+    font-size: var(--wa-ptm-step-0);
+    line-height: 1.5;
+}
+
+/* -----------------------------------------------------------------------------
+ * 5. Buttons — WP 7.0 design system aligned
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 36px;
+    padding: 6px 14px;
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-text);
+    border-radius: var(--wa-ptm-radius-sm);
+    color: var(--wa-ptm-text);
+    font-family: inherit;
+    font-size: var(--wa-ptm-step-1);
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: background-color var(--wa-ptm-ease), border-color var(--wa-ptm-ease), color var(--wa-ptm-ease), box-shadow var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button:hover,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button:hover {
+    background: var(--wa-ptm-surface-muted);
+    border-color: var(--wa-ptm-text);
+    color: var(--wa-ptm-text);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button:focus,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button:focus {
+    border-color: var(--wa-ptm-accent);
+    box-shadow: 0 0 0 1px var(--wa-ptm-accent);
+    outline: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button:disabled,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button[disabled],
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button:disabled {
+    background: var(--wa-ptm-surface);
+    border-color: var(--wa-ptm-border-strong);
+    color: var(--wa-ptm-text-faint);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Primary */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button.button-primary,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button-primary {
+    background: var(--wa-ptm-accent);
+    border-color: var(--wa-ptm-accent);
+    color: #fff;
+    text-shadow: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button.button-primary:hover,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button-primary:hover {
+    background: var(--wa-ptm-accent-hover);
+    border-color: var(--wa-ptm-accent-hover);
+    color: #fff;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button.button-primary:focus,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-button-primary:focus {
+    background: var(--wa-ptm-accent-hover);
+    border-color: var(--wa-ptm-accent-hover);
+    box-shadow: 0 0 0 1.5px #fff, 0 0 0 3px var(--wa-ptm-accent);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button.button-primary:disabled {
+    background: var(--wa-ptm-accent);
+    border-color: var(--wa-ptm-accent);
+    color: #fff;
+    opacity: 0.5;
+}
+
+/* Secondary alias */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button.button-secondary {
+    background: var(--wa-ptm-surface);
+    border-color: var(--wa-ptm-text);
+    color: var(--wa-ptm-text);
+}
+
+/* Small */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .button.button-small {
+    min-height: 30px;
+    padding: 4px 10px;
+    font-size: var(--wa-ptm-step-0);
+}
+
+/* -----------------------------------------------------------------------------
+ * 6. Action blocks (Export / Import inner sections)
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block h3 {
+    margin: 0 0 6px;
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-3);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-action-block + .wa-acf-ptm-action-block {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--wa-ptm-border);
+}
+
+/* -----------------------------------------------------------------------------
+ * 7. Export picker — filterbar, checklist, chips
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-picker {
+    margin-top: 16px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-filterbar {
+    display: grid;
+    grid-template-columns: 180px 1fr 160px;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+@media (max-width: 782px) {
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-filterbar {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selection-panel {
+    border: 1px solid var(--wa-ptm-border);
+    border-radius: var(--wa-ptm-radius-md);
+    background: var(--wa-ptm-surface);
+    overflow: hidden;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selection-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 16px;
+    background: var(--wa-ptm-surface-muted);
+    border-bottom: 1px solid var(--wa-ptm-border);
+}
+
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selection-topline > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 36px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selection-topline strong {
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-1);
+    font-weight: 600;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-target-count {
+    margin-left: 6px;
+    color: var(--wa-ptm-text-muted);
+    font-weight: 400;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selection-status {
+    margin: 4px 0 0;
+    font-size: var(--wa-ptm-step--1);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selection-status:empty {
+    display: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-checklist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Selected chips */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selected-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px 16px 0;
+    min-height: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-selected-chips:empty {
+    padding: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-chip,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-chip-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 8px 3px 10px;
+    background: var(--wa-ptm-accent-soft);
+    border: 1px solid #c7d2f8;
+    border-radius: 999px;
+    color: var(--wa-ptm-accent-hover);
+    font-size: var(--wa-ptm-step--1);
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-chip button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    color: var(--wa-ptm-accent-hover);
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-chip button:hover {
+    background: rgba(56, 88, 233, 0.15);
+}
+
+/* Checklist */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-checklist {
+    max-height: 360px;
+    overflow-y: auto;
+    padding: 8px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-checklist-item {
+    display: grid;
+    grid-template-columns: 22px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: var(--wa-ptm-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-checklist-item:hover {
+    background: var(--wa-ptm-surface-muted);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-checklist-item input[type="checkbox"] {
+    margin: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-check-title {
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-1);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-check-meta {
+    color: var(--wa-ptm-text-muted);
+    font-size: var(--wa-ptm-step--1);
+    font-variant-numeric: tabular-nums;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-row-export-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 16px;
+    grid-template-columns: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-export-field-selection-status {
+    margin: 0;
+    color: var(--wa-ptm-text-muted);
+    font-size: var(--wa-ptm-step-0);
+}
+
+/* -----------------------------------------------------------------------------
+ * 8. Import — file picker, options, status
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-import-intro {
+    width: 100%;
+    max-width: 70ch;
+    margin-bottom: 12px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-shell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 40px;
+    margin-top: 6px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    opacity: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-trigger {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-text);
+    border-radius: var(--wa-ptm-radius-sm);
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-0);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-trigger:hover {
+    background: var(--wa-ptm-surface-muted);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-input:focus + .wa-acf-ptm-file-trigger,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-input:focus-visible + .wa-acf-ptm-file-trigger {
+    border-color: var(--wa-ptm-accent);
+    box-shadow: 0 0 0 1px var(--wa-ptm-accent);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-file-name {
+    color: var(--wa-ptm-text-muted);
+    font-size: var(--wa-ptm-step-0);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-import-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0 0;
+    padding: 12px 16px;
+    background: var(--wa-ptm-surface-muted);
+    border: 1px solid var(--wa-ptm-border);
+    border-radius: var(--wa-ptm-radius-md);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-import-options legend {
+    margin: 0 0 4px;
+    padding: 0;
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-0);
+    font-weight: 600;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-import-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--wa-ptm-text-soft);
+    font-size: var(--wa-ptm-step-1);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    cursor: pointer;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-import-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-import-buttons .wa-acf-ptm-button {
+    min-width: 172px;
+}
+
+/* Status blocks */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-status {
+    margin-top: 14px;
+    padding: 10px 14px;
+    border: 1px solid var(--wa-ptm-border);
+    border-radius: var(--wa-ptm-radius-md);
+    background: var(--wa-ptm-surface-muted);
+    color: var(--wa-ptm-text-soft);
+    font-size: var(--wa-ptm-step-1);
+    line-height: 1.5;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-status:empty {
+    display: none;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * 9. Fields card — header, toolbar, list, field item
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-current-page-header {
+    margin: 0 0 16px;
+    padding: 0 0 14px;
+    border-bottom: 1px solid var(--wa-ptm-border);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-current-page-title {
+    margin: 0;
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-4);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-fields-toolbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 0 0 20px;
+    padding: 12px 0 16px;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--wa-ptm-border);
+    border-radius: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-toolbar-group {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-toolbar-label {
+    color: var(--wa-ptm-text-muted);
+    font-size: var(--wa-ptm-step-0);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-fields-toolbar-filters {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Filter buttons (segmented) */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-field-filter {
+    min-height: 30px;
+    padding: 4px 12px;
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-border-strong);
+    border-radius: var(--wa-ptm-radius-sm);
+    color: var(--wa-ptm-text-soft);
+    font-size: var(--wa-ptm-step-0);
+    font-weight: 500;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-field-filter:hover {
+    background: var(--wa-ptm-surface-muted);
+    color: var(--wa-ptm-text);
+    border-color: var(--wa-ptm-border-strong);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-field-filter.is-active,
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple .wa-acf-ptm-field-filter[aria-pressed="true"] {
+    background: var(--wa-ptm-text);
+    border-color: var(--wa-ptm-text);
+    color: #fff;
+}
+
+/* Field groups & list */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-group {
+    margin: 0 0 24px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-group:last-child {
+    margin-bottom: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-group-title {
+    margin: 0 0 12px;
+    padding: 0;
+    border: 0;
+    color: var(--wa-ptm-text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-fields-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-item {
+    margin: 0;
+    padding: 12px 16px;
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-border);
+    border-radius: var(--wa-ptm-radius-md);
+    box-shadow: none;
+    transition: border-color var(--wa-ptm-ease), box-shadow var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-item.is-editable:hover {
+    border-color: var(--wa-ptm-border-strong);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-item.is-editing {
+    border-color: var(--wa-ptm-accent);
+    box-shadow: 0 0 0 1px var(--wa-ptm-accent);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-item.is-readonly {
+    background: var(--wa-ptm-surface-subtle);
+}
+
+/* Field head */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-head-main {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-head-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-title {
+    color: var(--wa-ptm-text);
+    font-size: var(--wa-ptm-step-1);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-edit-hint {
+    color: var(--wa-ptm-text-faint);
+    font-size: var(--wa-ptm-step--1);
+    font-weight: 400;
+}
+
+/* Field body */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-body {
+    padding: 0;
+    color: var(--wa-ptm-text-soft);
+    font-size: var(--wa-ptm-step-1);
+    line-height: 1.55;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-display p {
+    margin: 0 0 8px;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-display p:last-child {
+    margin-bottom: 0;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-field-body.is-empty .wa-acf-ptm-field-display {
+    color: var(--wa-ptm-text-faint);
+    font-style: italic;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-empty {
+    color: var(--wa-ptm-text-faint);
+    font-style: italic;
+}
+
+/* Inline editor */
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-editor {
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px 10px;
+    background: var(--wa-ptm-surface);
+    border: 1px solid var(--wa-ptm-border-strong);
+    border-radius: var(--wa-ptm-radius-sm);
+    color: var(--wa-ptm-text);
+    font-family: inherit;
+    font-size: var(--wa-ptm-step-1);
+    line-height: 1.5;
+    resize: vertical;
+    transition: border-color var(--wa-ptm-ease), box-shadow var(--wa-ptm-ease);
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-editor:focus {
+    border-color: var(--wa-ptm-accent);
+    box-shadow: 0 0 0 1px var(--wa-ptm-accent);
+    outline: none;
+}
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-inline-editor-status {
+    margin-top: 6px;
+    color: var(--wa-ptm-text-muted);
+    font-size: var(--wa-ptm-step--1);
+}
+
+/* -----------------------------------------------------------------------------
+ * 10. Progress dialog / modal
+ * -------------------------------------------------------------------------- */
+
+body.toplevel_page_acf-page-text-manager .wa-acf-ptm-progress-backdrop,
+.wa-acf-ptm-progress-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 30, 30, 0.55);
+    backdrop-filter: blur(2px);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.wa-acf-ptm-progress-dialog {
+    width: 100%;
+    max-width: 480px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--wa-ptm-border, #dcdcde);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    color: var(--wa-ptm-text, #1e1e1e);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.wa-acf-ptm-progress-header {
+    margin-bottom: 12px;
+}
+
+.wa-acf-ptm-progress-kicker {
+    display: inline-block;
+    margin-bottom: 6px;
+    padding: 2px 8px;
+    background: var(--wa-ptm-accent-soft, #f0f2ff);
+    border-radius: 999px;
+    color: var(--wa-ptm-accent-hover, #2235b0);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.wa-acf-ptm-progress-dialog h2 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--wa-ptm-text, #1e1e1e);
+}
+
+.wa-acf-ptm-progress-copy {
+    margin: 0 0 16px;
+    color: var(--wa-ptm-text-muted, #50575e);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.wa-acf-ptm-progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--wa-ptm-border, #dcdcde);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 12px 0 8px;
+}
+
+.wa-acf-ptm-progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--wa-ptm-accent, #3858e9);
+    border-radius: 999px;
+    transition: width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wa-acf-ptm-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--wa-ptm-text-muted, #50575e);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.wa-acf-ptm-progress-meta [data-wa-acf-ptm-progress-percent] {
+    color: var(--wa-ptm-text, #1e1e1e);
+    font-weight: 600;
+}
+
+.wa-acf-ptm-progress-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.wa-acf-ptm-progress-warnings {
+    margin-top: 14px;
+    padding: 10px 12px;
+    background: var(--wa-ptm-warning-soft, #fcf3e3);
+    border: 1px solid var(--wa-ptm-warning-border, #f0c33c);
+    border-radius: 4px;
+    color: var(--wa-ptm-warning, #8a5a00);
+    font-size: 13px;
+}
+
+.wa-acf-ptm-progress-warnings-title {
+    margin: 0 0 4px;
+    font-weight: 600;
+}
+
+.wa-acf-ptm-progress-warnings-list {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.wa-acf-ptm-progress-check {
+    color: var(--wa-ptm-success, #007017);
+    font-weight: 600;
+}
+
+/* -----------------------------------------------------------------------------
+ * 11. Status / notice states
+ * -------------------------------------------------------------------------- */
+
+/* -----------------------------------------------------------------------------
+ * 12. Misc utilities
+ * -------------------------------------------------------------------------- */
+
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple *,
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple *::before,
+    body.toplevel_page_acf-page-text-manager .wa-acf-ptm-simple *::after {
+        transition: none !important;
+    }
+}
+
+/* End of stylesheet */
