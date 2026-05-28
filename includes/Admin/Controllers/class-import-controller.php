@@ -193,9 +193,7 @@ final class Import_Controller {
 
 
 	private function extend_import_time_limit(): void {
-		if ( function_exists( 'set_time_limit' ) ) {
-			@set_time_limit( 300 );
-		}
+		// Execution limits are controlled by the host and WordPress environment.
 	}
 
 	private function get_requested_import_options(): array {

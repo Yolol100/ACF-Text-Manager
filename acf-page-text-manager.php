@@ -3,8 +3,7 @@
  * Plugin Name: ACF Page Text Manager
  * Description: Manage ACF, Yoast SEO, Rank Math, image metadata, and page/post summary fields from one admin screen.
  * Plugin URI: https://www.webactueel.nl/acf-page-text-manager/
- * Update URI: false
- * Version: 2.5.24
+ * Version: 2.5.25
  * Requires at least: 6.5
  * Requires PHP: 8.0
  * Author: Webactueel
@@ -19,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'WA_ACF_PTM_VERSION', '2.5.24' );
+define( 'WA_ACF_PTM_VERSION', '2.5.25' );
 define( 'WA_ACF_PTM_FILE', __FILE__ );
 define( 'WA_ACF_PTM_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WA_ACF_PTM_URL', plugin_dir_url( __FILE__ ) );

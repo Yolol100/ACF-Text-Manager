@@ -23,7 +23,6 @@ final class Plugin {
 	}
 
 	private function register(): void {
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 		add_action( 'init', array( $this, 'register_modules' ) );
 		add_action( 'admin_init', array( $this, 'register_privacy_policy_content' ) );
 		$this->register_wp_cli_commands();
@@ -39,14 +38,6 @@ final class Plugin {
 		}
 
 		\WP_CLI::add_command( 'acf-ptm', WP_CLI_Command::class );
-	}
-
-	public function load_textdomain(): void {
-		load_plugin_textdomain(
-			'acf-page-text-manager',
-			false,
-			dirname( plugin_basename( WA_ACF_PTM_FILE ) ) . '/languages'
-		);
 	}
 
 

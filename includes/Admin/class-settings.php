@@ -16,8 +16,8 @@ final class Settings {
 			'import_batch_size'  => 25,
 			'delimiter'          => ';',
 			'language_mode'      => 'warn',
-			'max_zip_files'       => 200,
-			'max_import_upload_files' => 50,
+			'max_zip_files'       => 50,
+			'max_import_upload_files' => 25,
 		);
 	}
 
@@ -33,8 +33,8 @@ final class Settings {
 			'import_batch_size'  => max( 1, min( 200, absint( $value['import_batch_size'] ?? $defaults['import_batch_size'] ) ) ),
 			'delimiter'          => ',' === ( $value['delimiter'] ?? '' ) ? ',' : $defaults['delimiter'],
 			'language_mode'      => in_array( $value['language_mode'] ?? '', array( 'off', 'warn', 'strict' ), true ) ? (string) $value['language_mode'] : $defaults['language_mode'],
-			'max_zip_files'       => max( 1, min( 1000, absint( $value['max_zip_files'] ?? $defaults['max_zip_files'] ) ) ),
-			'max_import_upload_files' => max( 1, min( 200, absint( $value['max_import_upload_files'] ?? $defaults['max_import_upload_files'] ) ) ),
+			'max_zip_files'       => max( 1, min( 50, absint( $value['max_zip_files'] ?? $defaults['max_zip_files'] ) ) ),
+			'max_import_upload_files' => max( 1, min( 25, absint( $value['max_import_upload_files'] ?? $defaults['max_import_upload_files'] ) ) ),
 		);
 	}
 
@@ -66,7 +66,7 @@ final class Settings {
 
 	public static function get_max_import_upload_files(): int {
 		$settings = self::get();
-		$max_files = (int) ( $settings['max_import_upload_files'] ?? 50 );
+		$max_files = (int) ( $settings['max_import_upload_files'] ?? 25 );
 
 		/**
 		 * Filters the maximum number of separate CSV/XLSX/ZIP files accepted in one upload request.
@@ -76,12 +76,12 @@ final class Settings {
 		 * @param int $max_files Maximum number of uploaded import files.
 		 */
 		$max_files = (int) apply_filters( 'wa_acf_ptm_max_import_upload_files', $max_files );
-		return max( 1, min( 200, $max_files ) );
+		return max( 1, min( 25, $max_files ) );
 	}
 
 	public static function get_max_zip_files(): int {
 		$settings = self::get();
-		$max_files = (int) ( $settings['max_zip_files'] ?? 200 );
+		$max_files = (int) ( $settings['max_zip_files'] ?? 50 );
 
 		/**
 		 * Filters the maximum number of CSV/XLSX files allowed inside one import ZIP.
@@ -89,7 +89,7 @@ final class Settings {
 		 * @param int $max_files Maximum number of import files.
 		 */
 		$max_files = (int) apply_filters( 'wa_acf_ptm_max_zip_files', $max_files );
-		return max( 1, min( 1000, $max_files ) );
+		return max( 1, min( 50, $max_files ) );
 	}
 
 }

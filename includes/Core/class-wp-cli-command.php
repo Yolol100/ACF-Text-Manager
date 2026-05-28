@@ -8,6 +8,7 @@ use WA_ACF_PTM\Admin\Services\Import_Plan_Builder;
 use WA_ACF_PTM\Admin\Services\Import_Processor;
 use WA_ACF_PTM\Admin\Services\Special_Field_Service;
 use WA_ACF_PTM\Admin\Services\Target_Permission_Service;
+use WA_ACF_PTM\Admin\Services\Temp_File_Service;
 use WA_ACF_PTM\Admin\Import_Plan_Store;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -70,10 +71,11 @@ final class WP_CLI_Command {
 			if ( '' === $temp || ! file_exists( $temp ) ) {
 				\WP_CLI::error( 'Could not build XLSX export.' );
 			}
-			if ( ! @copy( $temp, $output ) ) {
+			if ( ! copy( $temp, $output ) ) {
+				Temp_File_Service::delete( $temp );
 				\WP_CLI::error( 'Could not write XLSX export to output path.' );
 			}
-			@unlink( $temp );
+			Temp_File_Service::delete( $temp );
 		} else {
 			global $wp_filesystem;
 			if ( ! function_exists( 'WP_Filesystem' ) ) {

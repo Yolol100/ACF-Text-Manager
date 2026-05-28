@@ -171,7 +171,19 @@ final class Upgrade_Cleaner {
 		$items = @scandir( $path );
 
 		if ( array( '.', '..' ) === $items ) {
-			@rmdir( $path );
+			global $wp_filesystem;
+
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/file.php';
+			}
+
+			if ( ! $wp_filesystem ) {
+				WP_Filesystem();
+			}
+
+			if ( $wp_filesystem ) {
+				$wp_filesystem->rmdir( $path );
+			}
 		}
 	}
 

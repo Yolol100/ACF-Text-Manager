@@ -3,7 +3,7 @@ Contributors: webactueel
 Tags: acf, csv, import, export, seo
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 2.5.24
+Stable tag: 2.5.25
 Requires PHP: 8.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -85,6 +85,9 @@ ACF Page Text Manager is an administrator tool. Imports, exports and rollback fi
 
 == Upgrade Notice ==
 
+= 2.5.25 =
+Release hardening: stricter import caps and current metadata.
+
 = 2.5.24 =
 Minor cleanup: removed stale CSS selectors for old close/progress class names while preserving current data-attribute based import progress styling.
 
@@ -95,6 +98,12 @@ Removes the last dead picker auto-submit path and duplicate export no-selection 
 Removes leftover picker/link generic code that no current UI uses, keeping the tab script focused on the live admin controls.
 
 == Changelog ==
+
+= 2.5.25 =
+* Hardening: capped configured ZIP import files at 50 and separate upload files at 25, including filter overrides.
+* Release: bumped plugin metadata for the hardened build.
+* Hardening: replaced WP-CLI XLSX temp cleanup with the plugin temp-file guard.
+* Verification: reran PHP syntax and package checks.
 
 = 2.5.24 =
 * Cleanup: removed stale CSS selectors for old close/progress class names and switched progress percent styling to the live data-attribute selector.

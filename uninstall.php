@@ -39,7 +39,7 @@ function wa_acf_ptm_uninstall_cleanup_current_site() {
 
 if ( is_multisite() ) {
 	// Multisite: clean up every site on the network.
-	$site_ids = get_sites(
+	$wa_acf_ptm_site_ids = get_sites(
 		array(
 			'fields'                 => 'ids',
 			'number'                 => 0,
@@ -48,9 +48,9 @@ if ( is_multisite() ) {
 		)
 	);
 
-	if ( is_array( $site_ids ) ) {
-		foreach ( $site_ids as $site_id ) {
-			switch_to_blog( (int) $site_id );
+	if ( is_array( $wa_acf_ptm_site_ids ) ) {
+		foreach ( $wa_acf_ptm_site_ids as $wa_acf_ptm_site_id ) {
+			switch_to_blog( (int) $wa_acf_ptm_site_id );
 			wa_acf_ptm_uninstall_cleanup_current_site();
 			restore_current_blog();
 		}

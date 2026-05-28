@@ -348,6 +348,7 @@ trait Special_Field_Image_Trait {
 
 		global $wpdb;
 		$like = '%' . $wpdb->esc_like( $old_url ) . '%';
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Bounded opt-in media URL migration; direct posts table update is intentional.
 		$result = $wpdb->query(
 			$wpdb->prepare(
 				"UPDATE {$wpdb->posts} SET post_content = REPLACE(post_content, %s, %s), post_excerpt = REPLACE(post_excerpt, %s, %s) WHERE post_content LIKE %s OR post_excerpt LIKE %s",
@@ -370,20 +371,52 @@ trait Special_Field_Image_Trait {
 			return 0;
 		}
 
-		$table        = $validated_config['table'];
-		$id_column    = $validated_config['id_column'];
-		$value_column = $validated_config['value_column'];
-		$name_column  = $validated_config['name_column'];
+		$table        = esc_sql( $validated_config['table'] );
+		$id_column    = esc_sql( $validated_config['id_column'] );
+		$value_column = esc_sql( $validated_config['value_column'] );
+		$name_column  = esc_sql( $validated_config['name_column'] );
 
 		$updated = 0;
 		foreach ( $pairs as $old_url => $new_url ) {
-			$like = '%' . $wpdb->esc_like( (string) $old_url ) . '%';
-			$select_name = '' !== $name_column ? ', ' . $name_column . ' AS stored_name' : '';
+			$like      = '%' . $wpdb->esc_like( (string) $old_url ) . '%';
 			$row_limit = $this->get_media_rename_reference_row_limit();
-			$rows = $wpdb->get_results(
-				$wpdb->prepare( "SELECT {$id_column} AS row_id, {$value_column} AS stored_value{$select_name} FROM {$table} WHERE {$value_column} LIKE %s LIMIT %d", $like, $row_limit ),
-				ARRAY_A
-			);
+			$cache_key = 'media_rename_refs_' . md5( $table . '|' . $id_column . '|' . $value_column . '|' . $name_column . '|' . $like . '|' . (string) $row_limit );
+			$rows      = wp_cache_get( $cache_key, 'acf_page_text_manager' );
+
+			if ( false === $rows ) {
+				if ( '' !== $name_column ) {
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Bounded opt-in media reference migration; cached before query, no WordPress API exists for this cross-table scan.
+					$rows = $wpdb->get_results(
+						$wpdb->prepare(
+							'SELECT %i AS row_id, %i AS stored_value, %i AS stored_name FROM %i WHERE %i LIKE %s LIMIT %d',
+							$id_column,
+							$value_column,
+							$name_column,
+							$table,
+							$value_column,
+							$like,
+							$row_limit
+						),
+						ARRAY_A
+					);
+				} else {
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Bounded opt-in media reference migration; cached before query, no WordPress API exists for this cross-table scan.
+					$rows = $wpdb->get_results(
+						$wpdb->prepare(
+							'SELECT %i AS row_id, %i AS stored_value FROM %i WHERE %i LIKE %s LIMIT %d',
+							$id_column,
+							$value_column,
+							$table,
+							$value_column,
+							$like,
+							$row_limit
+						),
+						ARRAY_A
+					);
+				}
+
+				wp_cache_set( $cache_key, $rows, 'acf_page_text_manager', MINUTE_IN_SECONDS );
+			}
 			foreach ( $rows as $row ) {
 				$stored_name = isset( $row['stored_name'] ) ? (string) $row['stored_name'] : '';
 				if ( '' !== $stored_name && $this->should_skip_media_rename_reference_row( $stored_name ) ) {
@@ -403,8 +436,10 @@ trait Special_Field_Image_Trait {
 				$replaced = $this->replace_urls_in_value( $unserialized, $pairs );
 				$new_stored = $is_serialized ? maybe_serialize( $replaced ) : (string) $replaced;
 				if ( $new_stored !== $stored ) {
+					// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- Bounded opt-in media reference migration; cache is cleared immediately after successful update.
 					$result = $wpdb->update( $table, array( $value_column => $new_stored ), array( $id_column => $row_id ), array( '%s' ), array( '%d' ) );
 					if ( false !== $result ) {
+						wp_cache_delete( $cache_key, 'acf_page_text_manager' );
 						$updated += (int) $result;
 					}
 				}

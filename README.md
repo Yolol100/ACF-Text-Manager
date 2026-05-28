@@ -2,9 +2,10 @@
 
 Manage Advanced Custom Fields (ACF), Yoast SEO, Rank Math, image metadata, and page/post title and excerpt fields from a single WordPress admin screen — with CSV/XLSX import and export.
 
-**Version:** 2.5.24
+**Version:** 2.5.25
 
-Latest update: rebuilt bundled MO translation catalogs from the current POT so removed import-preview messages are no longer shipped.
+Latest update: hardened import caps, refreshed metadata, and reran package checks.
+
 **License:** GPL-2.0-or-later
 **Requires:** WordPress 6.5+, PHP 8.0+, Advanced Custom Fields (Free or Pro)
 **Tested up to:** WordPress 7.0
@@ -106,7 +107,12 @@ add_filter( 'wa_acf_ptm_allow_media_file_rename', '__return_true' );
 WP-CLI imports also require `--confirm-media-rename` before physical filename renames are allowed.
 
 
-## 2.5.24
+## 2.5.25
+
+- Hardening: stricter import caps for ZIP and separate upload files.
+- Hardening: safer WP-CLI XLSX temp cleanup.
+- Release: bumped plugin metadata for the hardened build.
+
 
 - Removed an unused export picker data attribute.
 - Added shipped documentation files to the upgrade cleanup manifest.

@@ -1,9 +1,11 @@
 # Changelog
 
-## 2.5.24
+## 2.5.25
 
-- Cleanup: rebuilt bundled MO translation catalogs from the current POT so removed import-preview messages are no longer shipped in binary language files.
-- Verification: reran syntax, CSS, dead-code, language-file and package checks.
+- Hardening: capped configured ZIP import files at 50 and separate upload files at 25, including filter overrides.
+- Release: bumped plugin metadata for the hardened build.
+- Hardening: replaced WP-CLI XLSX temp cleanup with the plugin temp-file guard.
+- Verification: reran PHP syntax, static hygiene checks and package checks.
 
 ## 2.5.22
 

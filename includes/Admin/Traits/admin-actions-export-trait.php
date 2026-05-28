@@ -40,6 +40,10 @@ trait Admin_Actions_Export_Trait {
 				continue;
 			}
 
+			if ( ! current_user_can( 'edit_post', $post_id ) ) {
+				continue;
+			}
+
 			$references[] = $post_type . ':' . $post_id;
 		}
 
