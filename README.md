@@ -1,13 +1,29 @@
-# ACF Page Text Manager
+# ACF Page Text Manager — Structured WordPress Content Editing
 
-Manage Advanced Custom Fields (ACF), Yoast SEO, Rank Math, image metadata, and page/post title and excerpt fields from a single WordPress admin screen — with CSV/XLSX import and export.
+> **Portfolio project · WordPress/PHP · ACF · Yoast SEO · Rank Math · CSV/XLSX workflows**
 
-**Version:** 2.5.25
+ACF Page Text Manager gives editors and developers one WordPress admin screen for reviewing and updating structured page/post content, ACF values, SEO metadata and image text. It also supports validated CSV/XLSX import and export for controlled bulk content work.
 
-Latest update: hardened import caps, refreshed metadata, and reran package checks.
+**Built by:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio](https://andrewbaeten.nl)
 
-**License:** GPL-2.0-or-later
-**Requires:** WordPress 6.5+, PHP 8.0+, Advanced Custom Fields (Free or Pro)
+## What problem it solves
+
+Structured WordPress content can be spread across core fields, ACF, SEO plugins and media metadata. Editing those values one screen at a time is slow and makes bulk review difficult. This plugin brings the supported text fields into one focused workflow while keeping imports scoped, validated and predictable.
+
+## Portfolio snapshot
+
+| Area | What it demonstrates |
+| --- | --- |
+| WordPress | Custom admin tooling and content-management workflows |
+| ACF | Dynamic field discovery and editing for supported text-oriented fields |
+| SEO | Yoast SEO and Rank Math metadata management |
+| Media | Image alt, caption, description and guarded filename workflows |
+| Bulk content | CSV/XLSX export and validated import |
+| Quality | Compatibility checks, scoped imports, temporary-file cleanup and release hardening |
+
+**Version:** 2.5.25  
+**License:** GPL-2.0-or-later  
+**Requires:** WordPress 6.5+, PHP 8.0+, Advanced Custom Fields (Free or Pro)  
 **Tested up to:** WordPress 7.0
 
 ---
@@ -63,38 +79,9 @@ The plugin does not phone home, does not load remote assets, and does not track 
 
 Removing the plugin via WordPress' "Delete" action runs `uninstall.php`, which removes the plugin's options and transients for the active site (and, on multisite, for every subsite). It does not touch ACF data or any page/post content.
 
-## Changelog
-
-## 2.5.21
-
-- Cleanup: removed dead auto-submit picker handling from the target selector.
-- Cleanup: removed duplicate export no-selection handling so only the checklist controller owns that validation.
-
-## 2.5.20
-
-- Cleanup: removed unused generic tab-jump selector handling.
-- Cleanup: removed unused picker open-link support and dead `data-edit-url` attributes.
-- Cleanup: removed unused multi-select picker branches and a dead `clear-visible` action branch.
-
-## 2.5.19
-
-- Cleanup: removed unused import preview-row payload generation after the separate preview UI was removed.
-- Cleanup: removed private import preview text helpers that no longer had runtime callers.
-- Docs: aligned README usage text with the current three-tab UI and single-action import flow.
-
-See [readme.txt](readme.txt) for the full version history.
-
-## License
-
-This plugin is released under the GNU General Public License v2.0 or later. See [LICENSE](LICENSE) for the full text.
-
-Copyright © Webactueel — https://www.webactueel.nl/
-
-
 ## WP-CLI media rename safety
 
 Physical media filename changes during CLI imports are disabled by default. Add `--confirm-media-rename` only after reviewing the dry-run output and confirming the import is intended to rename media files.
-
 
 ## Media filename rename safety
 
@@ -106,13 +93,41 @@ add_filter( 'wa_acf_ptm_allow_media_file_rename', '__return_true' );
 
 WP-CLI imports also require `--confirm-media-rename` before physical filename renames are allowed.
 
+## Changelog
 
-## 2.5.25
+### 2.5.25
 
 - Hardening: stricter import caps for ZIP and separate upload files.
 - Hardening: safer WP-CLI XLSX temp cleanup.
 - Release: bumped plugin metadata for the hardened build.
 
+### 2.5.21
 
-- Removed an unused export picker data attribute.
-- Added shipped documentation files to the upgrade cleanup manifest.
+- Cleanup: removed dead auto-submit picker handling from the target selector.
+- Cleanup: removed duplicate export no-selection handling so only the checklist controller owns that validation.
+
+### 2.5.20
+
+- Cleanup: removed unused generic tab-jump selector handling.
+- Cleanup: removed unused picker open-link support and dead `data-edit-url` attributes.
+- Cleanup: removed unused multi-select picker branches and a dead `clear-visible` action branch.
+
+### 2.5.19
+
+- Cleanup: removed unused import preview-row payload generation after the separate preview UI was removed.
+- Cleanup: removed private import preview text helpers that no longer had runtime callers.
+- Docs: aligned README usage text with the current three-tab UI and single-action import flow.
+
+See [readme.txt](readme.txt) for the full version history.
+
+## About the developer
+
+I am **Andrew Baeten**, a Senior WordPress Developer & Web Designer with 10+ years of experience across 70+ WordPress projects. I work across WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and automated QA.
+
+[Portfolio](https://andrewbaeten.nl) · [LinkedIn](https://www.linkedin.com/in/andrew-baeten-305a1478/) · [Email](mailto:info@andrewbaeten.nl)
+
+## License
+
+This plugin is released under the GNU General Public License v2.0 or later. See [LICENSE](LICENSE) for the full text.
+
+Copyright © Webactueel — https://www.webactueel.nl/
