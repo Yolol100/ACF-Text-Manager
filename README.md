@@ -100,6 +100,8 @@ WP-CLI imports also require `--confirm-media-rename` before physical filename re
 - Hardening: stricter import caps for ZIP and separate upload files.
 - Hardening: safer WP-CLI XLSX temp cleanup.
 - Release: bumped plugin metadata for the hardened build.
+- Cleanup: removed an unused export picker data attribute.
+- Cleanup: added shipped documentation files to the upgrade cleanup manifest.
 
 ### 2.5.21
 
