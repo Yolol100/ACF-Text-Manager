@@ -124,7 +124,7 @@ See [readme.txt](readme.txt) for the full version history.
 
 ## About the developer
 
-I am **Andrew Baeten**, a Senior WordPress Developer & Web Designer with 10+ years of experience across 70+ WordPress projects. I work across WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and automated QA.
+I am **Andrew Baeten**, a Senior WordPress Developer & Web Designer with 10+ years of experience across **90+ WordPress projects**. I currently manage and regularly update **120+ websites and webshops** and work across WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and automated QA.
 
 [Portfolio](https://andrewbaeten.nl) · [LinkedIn](https://www.linkedin.com/in/andrew-baeten-305a1478/) · [Email](mailto:info@andrewbaeten.nl)
 
