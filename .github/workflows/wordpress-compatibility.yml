@@ -33,9 +33,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - wordpress: 6.5
+          - wordpress: '6.5'
             php: '8.0'
-          - wordpress: 7.1
+          - wordpress: '7.1'
             php: '8.3'
 
     steps:
@@ -92,7 +92,7 @@ jobs:
           rm -f "$runtime/wp-content/debug.log"
           php /tmp/wp-cli.phar plugin activate acf-page-text-manager --path="$runtime"
           php /tmp/wp-cli.phar plugin status acf-page-text-manager --path="$runtime"
-          php /tmp/wp-cli.phar eval 'do_action("init"); echo class_exists("WA_ACF_PTM\\Core\\Plugin") ? "booted\n" : "missing\n";' --path="$runtime"
+          php /tmp/wp-cli.phar eval 'echo class_exists("WA_ACF_PTM\\Core\\Plugin") ? "booted\n" : "missing\n";' --path="$runtime"
 
       - name: Reject runtime PHP errors
         if: always()
