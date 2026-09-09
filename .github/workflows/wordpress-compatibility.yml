@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   runtime:
+    # Validate the documented minimum stack and the current supported WordPress stack.
     name: WordPress ${{ matrix.wordpress }} / PHP ${{ matrix.php }}
     runs-on: ubuntu-24.04
     timeout-minutes: 20
