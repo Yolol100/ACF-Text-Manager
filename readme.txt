@@ -2,7 +2,7 @@
 Contributors: webactueel
 Tags: acf, csv, import, export, seo
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Stable tag: 2.5.25
 Requires PHP: 8.0
 License: GPL-2.0-or-later
