@@ -110,7 +110,7 @@ jobs:
             foreach (($hook->callbacks ?? []) as $callbacks) {
               foreach ($callbacks as $callback) {
                 $fn = $callback["function"] ?? null;
-                if (is_array($fn) && is_object($fn[0] ?? null) && $fn[0] instanceof \\WA_ACF_PTM\\Admin\\Admin_Page) {
+                if (is_array($fn) && is_object($fn[0] ?? null) && get_class($fn[0]) === "WA_ACF_PTM\\Admin\\Admin_Page") {
                   $found = true;
                   break 2;
                 }
