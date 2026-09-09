@@ -5,6 +5,7 @@
  * Plugin URI: https://www.webactueel.nl/acf-page-text-manager/
  * Version: 2.5.25
  * Requires at least: 6.5
+ * Tested up to: 7.1
  * Requires PHP: 8.0
  * Author: Webactueel
  * Author URI: https://www.webactueel.nl/
