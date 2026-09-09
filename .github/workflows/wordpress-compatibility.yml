@@ -91,9 +91,37 @@ jobs:
           mkdir -p "$plugin_dir"
           rsync -a --exclude='.git/' "$GITHUB_WORKSPACE/" "$plugin_dir/"
           rm -f "$runtime/wp-content/debug.log"
+
+          # Force an admin bootstrap so Plugin::register_modules() and Admin_Module::register() execute.
+          php /tmp/wp-cli.phar config set WP_ADMIN true --raw --path="$runtime"
           php /tmp/wp-cli.phar plugin activate acf-page-text-manager --path="$runtime"
           php /tmp/wp-cli.phar plugin status acf-page-text-manager --path="$runtime"
-          php /tmp/wp-cli.phar eval 'echo class_exists("WA_ACF_PTM\\Core\\Plugin") ? "booted\n" : "missing\n";' --path="$runtime"
+          php /tmp/wp-cli.phar eval '
+            if (!is_admin()) {
+              fwrite(STDERR, "admin context missing\n");
+              exit(1);
+            }
+            if (!class_exists("WA_ACF_PTM\\Core\\Plugin") || !class_exists("WA_ACF_PTM\\Admin\\Admin_Page")) {
+              fwrite(STDERR, "admin classes missing\n");
+              exit(1);
+            }
+            $found = false;
+            $hook = $GLOBALS["wp_filter"]["admin_menu"] ?? null;
+            foreach (($hook->callbacks ?? []) as $callbacks) {
+              foreach ($callbacks as $callback) {
+                $fn = $callback["function"] ?? null;
+                if (is_array($fn) && is_object($fn[0] ?? null) && $fn[0] instanceof \\WA_ACF_PTM\\Admin\\Admin_Page) {
+                  $found = true;
+                  break 2;
+                }
+              }
+            }
+            if (!$found) {
+              fwrite(STDERR, "admin module hook missing\n");
+              exit(1);
+            }
+            echo "admin module registered\n";
+          ' --path="$runtime"
 
       - name: Reject runtime PHP errors
         if: always()
