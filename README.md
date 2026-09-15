@@ -1,135 +1,74 @@
-# ACF Page Text Manager — Structured WordPress Content Editing
+# ACF Page Text Manager
 
-> **Portfolio project · WordPress/PHP · ACF · Yoast SEO · Rank Math · CSV/XLSX workflows**
+ACF Page Text Manager is a WordPress admin plugin for reviewing and editing structured page/post content, supported ACF values, Yoast SEO and Rank Math metadata, image text and core post fields from one controlled interface.
 
-ACF Page Text Manager gives editors and developers one WordPress admin screen for reviewing and updating structured page/post content, ACF values, SEO metadata and image text. It also supports validated CSV/XLSX import and export for controlled bulk content work.
+It also provides validated CSV/XLSX import and export workflows for bulk content work.
 
-**Built by:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio](https://andrewbaeten.nl)
+## Main capabilities
 
-## What problem it solves
+- Browse and edit supported text-oriented fields for pages and posts.
+- Discover supported ACF fields dynamically.
+- Edit Yoast SEO and Rank Math metadata where those plugins are available.
+- Manage supported image alt text, captions, descriptions and guarded filename workflows.
+- Export one or more content items to CSV or XLSX.
+- Validate and prepare CSV/XLSX/ZIP imports before applying writes.
+- Process confirmed imports with progress feedback and bounded temporary state.
+- Keep physical media filename changes behind explicit opt-in safety controls.
 
-Structured WordPress content can be spread across core fields, ACF, SEO plugins and media metadata. Editing those values one screen at a time is slow and makes bulk review difficult. This plugin brings the supported text fields into one focused workflow while keeping imports scoped, validated and predictable.
+The plugin is intentionally focused on structured content editing rather than acting as a general-purpose migration suite.
 
-## Portfolio snapshot
+## Requirements
 
-| Area | What it demonstrates |
-| --- | --- |
-| WordPress | Custom admin tooling and content-management workflows |
-| ACF | Dynamic field discovery and editing for supported text-oriented fields |
-| SEO | Yoast SEO and Rank Math metadata management |
-| Media | Image alt, caption, description and guarded filename workflows |
-| Bulk content | CSV/XLSX export and validated import |
-| Quality | Compatibility checks, scoped imports, temporary-file cleanup and release hardening |
+- WordPress 6.5 or newer.
+- PHP 8.0 or newer.
+- Advanced Custom Fields (Free or Pro) for ACF-field workflows.
 
-**Version:** 2.5.25  
-**License:** GPL-2.0-or-later  
-**Requires:** WordPress 6.5+, PHP 8.0+, Advanced Custom Fields (Free or Pro)  
-**Tested up to:** WordPress 7.0
+Current plugin version: `2.5.25`.
 
----
-
-## What it does
-
-ACF Page Text Manager adds a focused **Tekstbeheer** menu to the WordPress admin where you can:
-
-- Browse and inline-edit text-oriented fields for any selected page or post — ACF fields, Yoast SEO metadata, Rank Math metadata, image alt/caption/description, and the post's own title and excerpt.
-- Export the values for one or many items to CSV or XLSX.
-- Import a CSV/XLSX/ZIP back in with validation and progress feedback before writes are processed.
-
-It is not a general-purpose migration suite. The scope is deliberately limited to text content for pages and posts, which keeps the workflow predictable and the import safe.
+The plugin header is tested through WordPress 7.1. See `readme.txt` for the complete release history and current distribution metadata.
 
 ## Installation
 
-1. Upload the plugin folder to `/wp-content/plugins/` (or upload the `.zip` via **Plugins → Add New → Upload Plugin**).
-2. Activate the plugin in **Plugins**.
-3. Make sure Advanced Custom Fields (Free or Pro) is installed and active.
+1. Upload the plugin folder or ZIP through **Plugins → Add New → Upload Plugin**.
+2. Activate **ACF Page Text Manager**.
+3. Make sure Advanced Custom Fields is installed and active for ACF workflows.
 4. Open **Tekstbeheer** in the WordPress admin sidebar.
 
 ## Usage
 
-The admin screen is organised in three tabs:
+The admin workflow is organized around three primary areas:
 
-- **Veldinhoud** — pick a page or post and inline-edit its fields.
-- **Export** — select one or more items and download CSV or XLSX.
-- **Import** — upload a CSV/XLSX/ZIP file and run the validated import.
+- **Veldinhoud** — select a page or post and edit supported fields.
+- **Export** — export selected items to CSV or XLSX.
+- **Import** — upload and validate CSV/XLSX/ZIP input before processing it.
 
-A few practical notes:
+Inline content edits and bulk imports remain separate operations. Media filename changes require an explicit safe path and should be tested on staging before being enabled for production content.
 
-- Inline edits autosave when you click outside the field; press `Ctrl+Enter` (`Cmd+Enter` on macOS) inside a field to save explicitly, or `Esc` to cancel.
-- Media filename changes are an opt-in path and require explicit "Save" — they are never applied implicitly.
-- Imports are validated/prepared before processing, then the confirmed import runs through the progress modal.
+## Media rename safety
 
-## Compatibility
-
-| Component | Minimum | Tested |
-|---|---|---|
-| WordPress | 6.5 | 7.0 |
-| PHP | 8.0 | 8.3 |
-| ACF | 6.7.2 | 6.7.x |
-
-The plugin checks for ACF at runtime and shows a clear notice if it is missing or outdated. ACF Pro and ACF Free are both supported.
-
-## Privacy
-
-The plugin stores its own settings in `wp_options` (`wa_acf_ptm_settings`, `wa_acf_ptm_media_rename_log`) and uses short-lived transients for in-progress import plans. Uploaded files are processed in WordPress' temp uploads directory and removed at the end of the import.
-
-The plugin does not phone home, does not load remote assets, and does not track usage.
-
-## Uninstall
-
-Removing the plugin via WordPress' "Delete" action runs `uninstall.php`, which removes the plugin's options and transients for the active site (and, on multisite, for every subsite). It does not touch ACF data or any page/post content.
-
-## WP-CLI media rename safety
-
-Physical media filename changes during CLI imports are disabled by default. Add `--confirm-media-rename` only after reviewing the dry-run output and confirming the import is intended to rename media files.
-
-## Media filename rename safety
-
-Physical media filename renames are disabled by default at code level through `wa_acf_ptm_allow_media_file_rename`. Enable this only in project code after staging validation, for example:
+Physical filename changes are disabled by default through `wa_acf_ptm_allow_media_file_rename`. Enable them only after project-specific staging validation.
 
 ```php
 add_filter( 'wa_acf_ptm_allow_media_file_rename', '__return_true' );
 ```
 
-WP-CLI imports also require `--confirm-media-rename` before physical filename renames are allowed.
+WP-CLI imports additionally require `--confirm-media-rename` before physical filename changes are allowed.
 
-## Changelog
+## Privacy and data handling
 
-### 2.5.25
+The plugin stores its own settings in WordPress options and uses temporary state for in-progress imports. Uploaded import files are processed through the WordPress temporary upload path and cleaned up by the plugin workflow.
 
-- Hardening: stricter import caps for ZIP and separate upload files.
-- Hardening: safer WP-CLI XLSX temp cleanup.
-- Release: bumped plugin metadata for the hardened build.
-- Cleanup: removed an unused export picker data attribute.
-- Cleanup: added shipped documentation files to the upgrade cleanup manifest.
+The plugin does not need to send content to an external service for its core editing/import/export functionality.
 
-### 2.5.21
+## Repository structure
 
-- Cleanup: removed dead auto-submit picker handling from the target selector.
-- Cleanup: removed duplicate export no-selection handling so only the checklist controller owns that validation.
-
-### 2.5.20
-
-- Cleanup: removed unused generic tab-jump selector handling.
-- Cleanup: removed unused picker open-link support and dead `data-edit-url` attributes.
-- Cleanup: removed unused multi-select picker branches and a dead `clear-visible` action branch.
-
-### 2.5.19
-
-- Cleanup: removed unused import preview-row payload generation after the separate preview UI was removed.
-- Cleanup: removed private import preview text helpers that no longer had runtime callers.
-- Docs: aligned README usage text with the current three-tab UI and single-action import flow.
-
-See [readme.txt](readme.txt) for the full version history.
-
-## About the developer
-
-I am **Andrew Baeten**, a Senior WordPress Developer & Web Designer with 10+ years of experience across **90+ WordPress projects**. I currently manage and regularly update **120+ websites and webshops** and work across WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and automated QA.
-
-[Portfolio](https://andrewbaeten.nl) · [LinkedIn](https://www.linkedin.com/in/andrew-baeten-305a1478/) · [Email](mailto:info@andrewbaeten.nl)
+- `acf-page-text-manager.php` — plugin bootstrap and metadata.
+- `includes/` — application, import/export, field and integration logic.
+- `assets/` — admin assets.
+- `languages/` — translations.
+- `uninstall.php` — plugin-owned cleanup.
+- `readme.txt` — WordPress distribution metadata and full changelog.
 
 ## License
 
-This plugin is released under the GNU General Public License v2.0 or later. See [LICENSE](LICENSE) for the full text.
-
-Copyright © Webactueel — https://www.webactueel.nl/
+GPL-2.0-or-later. See `LICENSE` and the plugin metadata.
