@@ -21,7 +21,7 @@ The plugin is intentionally focused on structured content editing rather than ac
 
 - WordPress 6.5 or newer.
 - PHP 8.0 or newer.
-- Advanced Custom Fields (Free or Pro) for ACF-field workflows.
+- Advanced Custom Fields 6.7.2 or newer (Free or Pro) for ACF-field workflows.
 
 Current plugin version: `2.5.25`.
 
@@ -31,7 +31,7 @@ The plugin header is tested through WordPress 7.1. See `readme.txt` for the comp
 
 1. Upload the plugin folder or ZIP through **Plugins → Add New → Upload Plugin**.
 2. Activate **ACF Page Text Manager**.
-3. Make sure Advanced Custom Fields is installed and active for ACF workflows.
+3. Make sure Advanced Custom Fields 6.7.2 or newer is installed and active for ACF workflows.
 4. Open **Tekstbeheer** in the WordPress admin sidebar.
 
 ## Usage
