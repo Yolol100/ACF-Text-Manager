@@ -1,8 +1,27 @@
 # ACF Page Text Manager
 
+> **Portfolio project · WordPress/PHP · ACF · Yoast/Rank Math · CSV/XLSX · guarded content workflows**
+
 ACF Page Text Manager is a WordPress admin plugin for reviewing and editing structured page/post content, supported ACF values, Yoast SEO and Rank Math metadata, image text and core post fields from one controlled interface.
 
 It also provides validated CSV/XLSX import and export workflows for bulk content work.
+
+**Built by:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio cases](https://andrewbaeten.nl/category/cases)
+
+## What problem it solves
+
+Structured WordPress content is often spread across the editor, ACF, SEO plugins and media fields. ACF Page Text Manager brings those supported text fields into one reviewable admin workflow and keeps bulk writes behind validation and explicit confirmation.
+
+## Portfolio snapshot
+
+| Area | What it demonstrates |
+| --- | --- |
+| WordPress | Admin tooling for pages and posts |
+| Structured content | Dynamic ACF field discovery and editing |
+| SEO workflows | Supported Yoast SEO and Rank Math metadata |
+| Bulk operations | Validated CSV/XLSX export and import |
+| Media | Alt text, captions, descriptions and guarded filename workflows |
+| Safety | Capability checks, validation, temporary state and explicit media-rename opt-in |
 
 ## Main capabilities
 
@@ -68,6 +87,12 @@ The plugin does not need to send content to an external service for its core edi
 - `languages/` — translations.
 - `uninstall.php` — plugin-owned cleanup.
 - `readme.txt` — WordPress distribution metadata and full changelog.
+
+## About the developer
+
+I am **Andrew Baeten**, a Senior WordPress Developer & Web Designer with 10+ years of experience and 70+ delivered WordPress projects. My work combines WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and quality-focused delivery.
+
+[Portfolio cases](https://andrewbaeten.nl/category/cases) · [LinkedIn](https://www.linkedin.com/in/andrew-baeten-305a1478/) · [Email](mailto:info@andrewbaeten.nl)
 
 ## License
 
