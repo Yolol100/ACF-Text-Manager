@@ -46,6 +46,19 @@ Current plugin version: `2.5.25`.
 
 The plugin header is tested through WordPress 7.1. See `readme.txt` for the complete release history and current distribution metadata.
 
+## Verification
+
+The repository includes a GitHub Actions WordPress compatibility workflow that:
+
+- runs PHP syntax checks;
+- creates clean WordPress 6.5/PHP 8.0 and WordPress 7.1/PHP 8.3 runtimes;
+- installs and activates ACF;
+- activates ACF Page Text Manager in a real WordPress admin context;
+- verifies that the admin module registers correctly;
+- fails when the runtime debug log contains PHP fatal errors, parse errors, warnings, deprecations or notices.
+
+This is runtime/bootstrap evidence rather than a full unit-test suite. Higher-risk media filename changes remain staging-first.
+
 ## Installation
 
 1. Upload the plugin folder or ZIP through **Plugins → Add New → Upload Plugin**.
