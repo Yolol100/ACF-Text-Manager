@@ -6,7 +6,7 @@ ACF Page Text Manager is a WordPress admin plugin for reviewing and editing stru
 
 It also provides validated CSV/XLSX import and export workflows for bulk content work.
 
-**Built by:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio cases](https://andrewbaeten.nl/category/cases)
+**Developer profile:** [Andrew Baeten](https://github.com/Yolol100) · [Portfolio cases](https://andrewbaeten.nl/category/cases)
 
 ## What problem it solves
 
