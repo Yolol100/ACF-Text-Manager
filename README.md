@@ -103,7 +103,7 @@ The plugin does not need to send content to an external service for its core edi
 
 ## About the developer
 
-I am **Andrew Baeten**, a WordPress Developer with 10+ years of experience and **70+ delivered projects**. My work combines WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and quality-focused delivery.
+I am **Andrew Baeten**, a WordPress Developer with 10+ years of experience across **90+ WordPress projects** and ongoing responsibility for **120+ websites and webshops**. My work combines WordPress, WooCommerce, Elementor, ACF, UX, performance, technical SEO and quality-focused delivery.
 
 [Portfolio cases](https://andrewbaeten.nl/category/cases) · [LinkedIn](https://www.linkedin.com/in/andrew-baeten-305a1478/) · [Email](mailto:info@andrewbaeten.nl)
 
