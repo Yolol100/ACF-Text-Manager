@@ -23,6 +23,19 @@ Structured WordPress content is often spread across the editor, ACF, SEO plugins
 | Media | Alt text, captions, descriptions and guarded filename workflows |
 | Safety | Capability checks, validation, temporary state and explicit media-rename opt-in |
 
+## Workflow at a glance
+
+```mermaid
+flowchart LR
+    A[Pages, posts, ACF, SEO and media] --> B[Controlled admin review]
+    B --> C[Inline edits]
+    B --> D[CSV/XLSX export]
+    D --> E[Review outside WordPress]
+    E --> F[Validated import]
+    C --> G[Confirmed WordPress writes]
+    F --> G
+```
+
 ## Main capabilities
 
 - Browse and edit supported text-oriented fields for pages and posts.
