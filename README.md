@@ -72,6 +72,8 @@ The repository includes a GitHub Actions WordPress compatibility workflow that:
 
 This is runtime/bootstrap evidence rather than a full unit-test suite. Higher-risk media filename changes remain staging-first.
 
+See [WordPress compatibility](.github/workflows/wordpress-compatibility.yml) for the executable contract.
+
 ## Installation
 
 1. Upload the plugin folder or ZIP through **Plugins → Add New → Upload Plugin**.
