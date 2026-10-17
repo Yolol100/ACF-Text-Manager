@@ -49,6 +49,19 @@ flowchart LR
 
 The plugin is intentionally focused on structured content editing rather than acting as a general-purpose migration suite.
 
+## A practical review in five minutes
+
+**Who benefits:** A WordPress content editor or agency managing text spread across page fields, ACF, image metadata and SEO settings.
+
+**What changes:** Instead of opening every field and plugin screen individually, an authorized editor can review supported values together, export a CSV/XLSX file, check changes and apply a confirmed import.
+
+1. On a disposable or staging WordPress installation, activate ACF and this plugin using the [installation steps](#installation).
+2. Open **Tekstbeheer** to inspect the supported fields on a test page.
+3. Export sample content, change a non-sensitive value and return through the validation/import flow.
+4. Inspect [the exact CI checks](#verification) and the [import implementation](includes/) before applying anything to a production site.
+
+**Evidence, not marketing:** The public workflow proves plugin bootstrap on its declared test matrix. It does not yet establish full import-unit coverage, speed improvements or outcomes on a client website. Do not use real client content for this walkthrough.
+
 ## Requirements
 
 - WordPress 6.5 or newer.
