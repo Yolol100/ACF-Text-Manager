@@ -8,6 +8,16 @@ It also provides validated CSV/XLSX import and export workflows for bulk content
 
 **Developer profile:** [Andrew Baeten](https://github.com/Yolol100) · [GitHub project index](https://github.com/Yolol100?tab=repositories)
 
+## See the WordPress editor
+
+[![ACF Page Text Manager WordPress admin overview, from my published portfolio](https://andrewbaeten.nl/wp-content/uploads/2026/04/acf-page-text-manager-admin-overview.png)](https://andrewbaeten.nl/acf-page-text-manager/)
+
+[View the ACF Page Text Manager case study](https://andrewbaeten.nl/acf-page-text-manager/) for the editing problem, my role and more interface images.
+
+**Example workflow:** select WordPress pages, review their supported ACF and SEO text fields, export a CSV/XLSX for review, validate the edited file and explicitly confirm a controlled import. This helps editors update many fields without treating a spreadsheet upload as an unconditional write.
+
+*The image is a published portfolio illustration; live-site use and release-specific behaviour must be checked separately. CI evidence below covers bootstrap compatibility, not every import scenario.*
+
 ## What problem it solves
 
 Structured WordPress content is often spread across the editor, ACF, SEO plugins and media fields. ACF Page Text Manager brings those supported text fields into one reviewable admin workflow and keeps bulk writes behind validation and explicit confirmation.
