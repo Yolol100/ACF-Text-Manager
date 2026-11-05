@@ -123,6 +123,12 @@ jobs:
             echo "admin module registered\n";
           ' --path="$runtime"
 
+      - name: Check stale import previews before writing ACF data
+        shell: bash
+        run: |
+          set -euo pipefail
+          php /tmp/wp-cli.phar eval-file "$GITHUB_WORKSPACE/tests/wp-cli-import-preview-conflict.php" --path=/tmp/acf-ptm-runtime
+
       - name: Reject runtime PHP errors
         if: always()
         shell: bash
