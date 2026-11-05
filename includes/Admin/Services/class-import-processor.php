@@ -98,13 +98,13 @@ final class Import_Processor {
 			$new_value     = $this->values->sanitize_by_type( (string) $operation_value, $field_type );
 			$updated       = false;
 			$current_after = '';
+			$is_special    = ! empty( $operation['is_special'] );
 
-			if ( ! empty( $operation['is_special'] ) ) {
-				$updated = $this->special_fields->update_special_field_value( $operation, $new_value );
-				$current_after = $this->values->stringify_value( $this->special_fields->get_special_field_value( $operation ) );
+			if ( $is_special ) {
+				$current_before = $this->values->stringify_value( $this->special_fields->get_special_field_value( $operation ) );
 			} else {
-				$field_key  = (string) ( $operation['field_key'] ?? '' );
-				$field_name = (string) ( $operation['field_name'] ?? '' );
+				$field_key   = (string) ( $operation['field_key'] ?? '' );
+				$field_name  = (string) ( $operation['field_name'] ?? '' );
 				$acf_post_id = $operation['acf_post_id'] ?? 0;
 
 				if ( '' === $field_key && '' === $field_name ) {
@@ -126,6 +126,38 @@ final class Import_Processor {
 					continue;
 				}
 
+				$current_before = $this->values->get_current_field_value( $field_name, $acf_post_id, $field_key );
+			}
+
+			// A preview is only an optimistic snapshot. Never overwrite edits made
+			// after it was built, even if the importing user still has edit rights.
+			if ( ! array_key_exists( 'current_value', $operation ) || ! is_scalar( $operation['current_value'] ) ) {
+				$error_messages[] = sprintf(
+					/* translators: %d: import row number. */
+					__( 'Rij %d is overgeslagen: de oorspronkelijke veldwaarde ontbreekt in het importplan.', 'acf-page-text-manager' ),
+					(int) ( $operation['row_index'] ?? 0 )
+				);
+				continue;
+			}
+
+			if ( ! $this->values->values_match_for_conflict_check( $current_before, (string) $operation['current_value'], $field_type ) ) {
+				if ( $this->values->values_match_for_conflict_check( $current_before, $new_value, $field_type ) ) {
+					$updated_count++;
+					continue;
+				}
+
+				$error_messages[] = sprintf(
+					/* translators: %d: import row number. */
+					__( 'Rij %d is overgeslagen: het veld is na de importvoorvertoning gewijzigd.', 'acf-page-text-manager' ),
+					(int) ( $operation['row_index'] ?? 0 )
+				);
+				continue;
+			}
+
+			if ( $is_special ) {
+				$updated = $this->special_fields->update_special_field_value( $operation, $new_value );
+				$current_after = $this->values->stringify_value( $this->special_fields->get_special_field_value( $operation ) );
+			} else {
 				$updated = '' !== $field_key ? update_field( $field_key, $new_value, $acf_post_id ) : false;
 				if ( false === $updated && '' !== $field_name ) {
 					$updated = update_field( $field_name, $new_value, $acf_post_id );
